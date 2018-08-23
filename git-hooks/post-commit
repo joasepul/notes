@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+echo "Running $0"
+
+set -e
+
+git diff-tree -r --name-only --no-commit-id HEAD | sort -u | grep -o '^docs\/'
+
+make deploy
